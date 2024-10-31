@@ -1,0 +1,30 @@
+A key goal of hash table implementation is to minimise collisions, and many textbook hash tables operate by evaluating a sum of linear combinations of parts of your data modulo n.
+
+If the number n of usable slots in the hash table is a prime number, you are guaranteed that any value modulo n has only one inverse modulo n, but this does not hold if n is not prime. The existence of multiple inverses or the non-existence of inverses will result in an uneven distribution of your mapped values, because there is no longer a unique x that satisfies a*x mod n = b, which has the effect of mapping two different values modulo n to the same value. This will result in an increased collision probability.
+
+You can think of it in the following way, if a has two inverses modulo n, then:
+
+ax mod n may be equal to ay mod n if x and y are a's inverses. In this case you will have an avoidable collision, as x or y would have fitted in the array (as they are numbers mod n) but not collided. However, after the multiplication by a they may collide. This is guaranteed not to happen if n is prime.
+  https://www.quora.com/Does-making-array-size-a-prime-number-help-in-hash-table-implementation-Why
+
+https://mathworld.wolfram.com/ModularInverse.html
+A modular inverse of an integer b (modulo m) is the integer b^(-1) such that
+
+ bb^(-1)=1 (mod m). 
+A modular inverse can be computed in the Wolfram Language using PowerMod[b, -1, m].
+
+Every nonzero integer b has an inverse (modulo p) for p a prime and b not a multiple of p. For example, the modular inverses of 1, 2, 3, and 4 (mod 5) are 1, 3, 2, and 4.
+
+If m is not prime, then not every nonzero integer b has a modular inverse. In fact, a nonzero integer b has a modular inverse modulo m iff b and m are relatively prime. For example, 1^(-1)=1 (mod 4) and 3^(-1)=3 (mod 4), but 2 does not have a modular inverse.
+
+ 1 
+12 
+103 
+1324 
+10005 
+145236  
+The triangle above (OEIS A102057) gives modular inverses of b (mod m) for b=1, 2, ..., m-1 and m=2, 3, .... 0 indicates that no modular inverse exists.
+
+If b and m are relatively prime, there exist integers x and y such that bx+my=1, and such integers may be found using the Euclidean algorithm. Considering this equation modulo m, it follows that bx=1; i.e., x=b^(-1) (mod m).
+
+If b and m are relatively prime, then Euler's totient theorem states that b^(phi(m))=1 (mod m), where phi(m) is the totient function. Hence, b^(-1)=b^(phi(m)-1) (mod m).
