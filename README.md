@@ -8,3 +8,4 @@ Here are some possible directions:
   * If the hash_function produces evenly distributed hashes for all values, then there are no patterns or groupings for a non-prime divisor to exploit
 * A modulus divisor that is farther from a power of 2 is better than a prime divisor closer to a power of 2
   * since data is represented in a computer as binary, a modulus divisor equivalent to 2^n would result in more collisions
+  * i think this only matters if the number of hashes exceeds the buckets in the array
