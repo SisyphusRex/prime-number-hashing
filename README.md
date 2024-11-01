@@ -5,6 +5,6 @@ This question came up in an Advanced Python Programming class:
 
 Here are some possible directions:
 * The hash function itself is more important than the modulus divisor
- * If the hash_function produces evenly distributed hashes for all values, then there are no patterns or groupings for a non-prime divisor to exploit
+   * If the hash_function produces evenly distributed hashes for all values, then there are no patterns or groupings for a non-prime divisor to exploit
 * A modulus divisor that is farther from a power of 2 is better than a prime divisor closer to a power of 2
  * 
