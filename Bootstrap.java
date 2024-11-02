@@ -1,4 +1,4 @@
-package modulohash;
+package primenumberhashing;
 
 public class Bootstrap {
 

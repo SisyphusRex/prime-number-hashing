@@ -1,13 +1,13 @@
-package modulohash;
+package primenumberhashing;
 
 public class Program {
 
-    private ProgramWrapper wrapped = new ProgramWrapper();
+    private FunctionWrapper wrappedFunctions = new FunctionWrapper();
 
     public void run() {
 
         while (true) {
-            int mainMenuChoice = wrapped.getMainMenuChoice();
+            int mainMenuChoice = wrappedFunctions.getMainMenuChoice();
             switch (mainMenuChoice) {
                 case 0:
                     displayPopulateArrayMenu();
@@ -25,23 +25,23 @@ public class Program {
 
     private void displayPopulateArrayMenu() {
         while (true) {
-            int populateArrayMenuChoice = wrapped.getPopulateArrayMenuChoice();
+            int populateArrayMenuChoice = wrappedFunctions.getPopulateArrayMenuChoice();
             switch (populateArrayMenuChoice) {
                 case 0:
                     // 2^n modulo
-                    wrapped.populateArrayWithBase2Modulo();
+                    wrappedFunctions.populateArrayWithBase2Modulo();
 
                 case 1:
                     // 10^n modulo
-                    wrapped.populateArrayWithBase10Modulo();
+                    wrappedFunctions.populateArrayWithBase10Modulo();
 
                 case 2:
                     // Prime Modulo
-                    wrapped.populateArrayWithPrimeModulo();
+                    wrappedFunctions.populateArrayWithPrimeModulo();
 
                 case 3:
                     // Other modulo
-                    wrapped.populateArrayWithOtherModulo();
+                    wrappedFunctions.populateArrayWithOtherModulo();
 
                 case 4:
                     // exit to main menu
@@ -52,10 +52,10 @@ public class Program {
 
     private void displayCompareDataMenu() {
         while (true) {
-            int compareDataMenuChoice = wrapped.getCompareDataMenuChoice();
+            int compareDataMenuChoice = wrappedFunctions.getCompareDataMenuChoice();
             switch (compareDataMenuChoice) {
                 case 0:
-                    wrapped.showComparedData();
+                    wrappedFunctions.showComparedData();
                 case 1:
                     break;
             }
