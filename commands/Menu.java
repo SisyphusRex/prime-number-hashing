@@ -1,16 +1,18 @@
-package primenumberhashing.commands.menus;
+package primenumberhashing.commands;
 
 import java.util.HashMap;
 import java.util.Map;
-import primenumberhashing.commands.Command;
-import java.util.Scanner;
 
-abstract class AbstractMenu implements Command {
+import java.util.Scanner;
+import java.util.Set;
+
+public class Menu implements Command {
     private Map<String, Command> commands = new HashMap<>();
-    private Command[] menuOptions;
+    private String[] menuOptions;
 
     private Scanner scanner = new Scanner(System.in);
 
+    @Override
     public void execute() {
         mapHashKeysToArray();
         displayMenu();
@@ -21,9 +23,9 @@ abstract class AbstractMenu implements Command {
     }
 
     private void mapHashKeysToArray() {
-        setOfKeys = commands.keySet();
-        hashKeys = new String[setOfKeys.size()];
-        hashKeys = setOfKeys.toArray();
+        Set<String> setOfKeys = commands.keySet();
+        menuOptions = new String[setOfKeys.size()];
+        menuOptions = setOfKeys.toArray(menuOptions);
     }
 
     private String mapInputToName(int input) {
@@ -40,7 +42,7 @@ abstract class AbstractMenu implements Command {
         commands.put(name, command);
     }
 
-    public void executeCommand(String name) {
+    private void executeCommand(String name) {
         Command command = commands.get(name);
         // perhaps move this to its own UI method
         if (command != null) {
@@ -50,14 +52,14 @@ abstract class AbstractMenu implements Command {
         }
     }
 
-    public void displayMenu() {
+    private void displayMenu() {
         System.out.println("Menu:");
         for (int i = 0; i < menuOptions.length; i++) {
             System.out.println(i + ": " + menuOptions[i]);
         }
     }
 
-    public void displayMenuHash() {
+    private void displayMenuHash() {
         System.out.println("Menu:");
         int counter = 0;
         for (String name : commands.keySet()) {

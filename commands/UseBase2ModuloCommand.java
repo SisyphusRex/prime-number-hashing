@@ -1,7 +1,8 @@
 package primenumberhashing.commands;
 
-public class ExitProgram implements Command {
+public class UseBase2ModuloCommand implements Command {
+    @Override
     public void execute() {
-        System.exit(0);
+
     }
 }
