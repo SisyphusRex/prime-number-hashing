@@ -1,9 +1,8 @@
 package primenumberhashing.commands;
 
-public class ReturnPreviousMenuCommand implements Command {
+public class UseBase2ModuloGoodDistributionCommand implements Command {
     @Override
     public void execute() {
 
     }
-
 }

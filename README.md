@@ -11,8 +11,14 @@ Here are some possible directions:
   * i think this only matters if the number of hashes exceeds the buckets in the array
   * NOTE: A modulus divisor equal to 2^n should be avoided
    * if the hash function has a tendency to produce more hashes with the same bits below 2^n, then that tendency will be repeated in the hashtable assignments
- 
+
 I've found conflicting responses on StackOverflow and other resources.  I cannot find a formal proof to reference.  I plan on writing a program that evaluates collisions with three variables:
 1. hashes of keys (to create patterns indicative of poor hashing)
 2. number of keys (probability distribution is more accurate the more data is used)
 3. size of array (prime, 2^n, # of keys, furthest from 2^n (prime vs not prime))
+
+compile:
+    javac primenumberhashing/*.java
+
+run:
+    java primenumberhashing.Bootstrap

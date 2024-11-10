@@ -9,8 +9,16 @@ import java.util.Set;
 public class Menu implements Command {
     private Map<String, Command> commands = new HashMap<>();
     private String[] menuOptions;
+    private Menu parentMenu;
 
     private Scanner scanner = new Scanner(System.in);
+
+    public Menu(Menu parentMenu) {
+        this.parentMenu = parentMenu;
+        if (parentMenu != null) {
+            commands.put("Back", null);
+        }
+    }
 
     @Override
     public void execute() {
@@ -42,11 +50,13 @@ public class Menu implements Command {
         commands.put(name, command);
     }
 
-    private void executeCommand(String name) {
-        Command command = commands.get(name);
+    private void executeCommand(String commandName) {
+        Command command = commands.get(commandName);
         // perhaps move this to its own UI method
         if (command != null) {
             command.execute();
+        } else if (commandName.equals("Back") && parentMenu != null) {
+            parentMenu.execute();
         } else {
             System.out.println("invalid Command");
         }

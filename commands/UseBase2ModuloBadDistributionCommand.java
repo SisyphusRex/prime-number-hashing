@@ -1,7 +1,6 @@
 package primenumberhashing.commands;
 
-public class UseBase10ModuloCommand implements Command {
-
+public class UseBase2ModuloBadDistributionCommand implements Command {
     @Override
     public void execute() {
 
