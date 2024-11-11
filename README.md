@@ -17,6 +17,8 @@ I've found conflicting responses on StackOverflow and other resources.  I cannot
 2. number of keys (probability distribution is more accurate the more data is used)
 3. size of array (prime, 2^n, # of keys, furthest from 2^n (prime vs not prime))
 
+NOTE: I am implementing a Command Pattern Design menu and program flow for modularity.
+
 compile:
     javac primenumberhashing/*.java
 
