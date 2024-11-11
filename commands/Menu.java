@@ -2,16 +2,16 @@ package primenumberhashing.commands;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import java.util.Scanner;
 import java.util.Set;
+import primenumberhashing.UserInterface;
 
 public class Menu implements Command {
     private Map<String, Command> commands = new HashMap<>();
     private String[] menuOptions;
     private Menu parentMenu;
+    private UserInterface ui = new UserInterface();
 
-    private Scanner scanner = new Scanner(System.in);
+    // private Scanner scanner = new Scanner(System.in);
 
     public Menu(Menu parentMenu) {
         this.parentMenu = parentMenu;
@@ -23,8 +23,8 @@ public class Menu implements Command {
     @Override
     public void execute() {
         mapHashKeysToArray();
-        displayMenu();
-        int choice = getInput();
+        ui.displayMenu(this.menuOptions);
+        int choice = ui.getInput();
         String name = mapInputToName(choice);
         executeCommand(name);
 
@@ -41,11 +41,12 @@ public class Menu implements Command {
         return optionName;
     }
 
-    private int getInput() {
-        Integer input = scanner.nextInt();
-        return input;
-    }
-
+    /*
+     * private int getInput() {
+     * Integer input = scanner.nextInt();
+     * return input;
+     * }
+     */
     public void addCommand(String name, Command command) {
         commands.put(name, command);
     }
@@ -62,20 +63,24 @@ public class Menu implements Command {
         }
     }
 
-    private void displayMenu() {
-        System.out.println("Menu:");
-        for (int i = 0; i < menuOptions.length; i++) {
-            System.out.println(i + ": " + menuOptions[i]);
-        }
-    }
+    /*
+     * private void displayMenu() {
+     * System.out.println("Menu:");
+     * for (int i = 0; i < menuOptions.length; i++) {
+     * System.out.println(i + ": " + menuOptions[i]);
+     * }
+     * }
+     */
 
-    private void displayMenuHash() {
-        System.out.println("Menu:");
-        int counter = 0;
-        for (String name : commands.keySet()) {
-            String optionWithNumber = String.format("%d: %s", counter, name);
-            System.out.println(optionWithNumber);
-            counter++;
-        }
-    }
+    /*
+     * private void displayMenuHash() {
+     * System.out.println("Menu:");
+     * int counter = 0;
+     * for (String name : commands.keySet()) {
+     * String optionWithNumber = String.format("%d: %s", counter, name);
+     * System.out.println(optionWithNumber);
+     * counter++;
+     * }
+     * }
+     */
 }

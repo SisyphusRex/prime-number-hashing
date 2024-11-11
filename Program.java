@@ -5,6 +5,7 @@ import primenumberhashing.commands.*;
 public class Program {
     Menu mainMenu;
     Menu populateTablesMenu;
+    Menu compareDataMenu;
 
     Menu badKeyDistributionMenu;
     Menu goodKeyDistributionMenu;
@@ -12,6 +13,8 @@ public class Program {
     public Program() {
         mainMenu = new Menu(null);
         populateTablesMenu = new Menu(mainMenu);
+        compareDataMenu = new Menu(mainMenu);
+
         badKeyDistributionMenu = new Menu(populateTablesMenu);
         goodKeyDistributionMenu = new Menu(populateTablesMenu);
     }
@@ -19,7 +22,9 @@ public class Program {
     public void run() {
         establishGoodKeyDistributionMenu();
         establishBadKeyDistributionMenu();
+
         establishPopulateTablesMenu();
+        establishCompareDataMenu();
         establishMainMenu();
         mainMenu.execute();
     }
@@ -28,6 +33,12 @@ public class Program {
         ExitProgramCommand exitProgram = new ExitProgramCommand();
         mainMenu.addCommand("Exit Program", exitProgram);
         mainMenu.addCommand("Populate Tables", populateTablesMenu);
+    }
+
+    private void establishCompareDataMenu() {
+        CompareStatisticsOfTables compareStats = new CompareStatisticsOfTables();
+
+        compareDataMenu.addCommand("Compare Table Statistics", compareStats);
     }
 
     private void establishPopulateTablesMenu() {
@@ -59,4 +70,5 @@ public class Program {
         goodKeyDistributionMenu.addCommand("Use Prime Modulo", goodPrime);
         goodKeyDistributionMenu.addCommand("Use Other Modulo", goodOther);
     }
+
 }
