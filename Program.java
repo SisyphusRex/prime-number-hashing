@@ -5,7 +5,7 @@ import primenumberhashing.commands.*;
 public class Program {
     Menu mainMenu;
     Menu populateTablesMenu;
-    Menu chooseKeyDistributionMenu;
+
     Menu badKeyDistributionMenu;
     Menu goodKeyDistributionMenu;
 
@@ -40,15 +40,23 @@ public class Program {
     private void establishBadKeyDistributionMenu() {
         UseBase2ModuloBadDistributionCommand badBase2 = new UseBase2ModuloBadDistributionCommand();
         UseBase10ModuloBadDistributionCommand badBase10 = new UseBase10ModuloBadDistributionCommand();
-        badKeyDistributionMenu.addCommand("Use base 2", badBase2);
-        badKeyDistributionMenu.addCommand("Use base 10", badBase10);
+        UsePrimeModuloBadDistributionCommand badPrime = new UsePrimeModuloBadDistributionCommand();
+        UseOtherModuloBadDistributionCommand badOther = new UseOtherModuloBadDistributionCommand();
+        badKeyDistributionMenu.addCommand("Use base 2 Modulo", badBase2);
+        badKeyDistributionMenu.addCommand("Use base 10 Modulo", badBase10);
+        badKeyDistributionMenu.addCommand("Use Prime Modulo", badPrime);
+        badKeyDistributionMenu.addCommand("Use other Modulo", badOther);
 
     }
 
     private void establishGoodKeyDistributionMenu() {
         UseBase2ModuloGoodDistributionCommand goodBase2 = new UseBase2ModuloGoodDistributionCommand();
         UseBase10ModuloGoodDistributionCommand goodBase10 = new UseBase10ModuloGoodDistributionCommand();
-        goodKeyDistributionMenu.addCommand("use base 2", goodBase2);
-        goodKeyDistributionMenu.addCommand("use base 10", goodBase10);
+        UsePrimeModuloGoodDistributionCommand goodPrime = new UsePrimeModuloGoodDistributionCommand();
+        UseOtherModuloGoodDistributionCommand goodOther = new UseOtherModuloGoodDistributionCommand();
+        goodKeyDistributionMenu.addCommand("Use base 2 Modulo", goodBase2);
+        goodKeyDistributionMenu.addCommand("Use base 10 Modulo", goodBase10);
+        goodKeyDistributionMenu.addCommand("Use Prime Modulo", goodPrime);
+        goodKeyDistributionMenu.addCommand("Use Other Modulo", goodOther);
     }
 }
