@@ -33,6 +33,7 @@ public class Program {
         ExitProgramCommand exitProgram = new ExitProgramCommand();
         mainMenu.addCommand("Exit Program", exitProgram);
         mainMenu.addCommand("Populate Tables", populateTablesMenu);
+        mainMenu.addCommand("Compare Data", compareDataMenu);
     }
 
     private void establishCompareDataMenu() {
