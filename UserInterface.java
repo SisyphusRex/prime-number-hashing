@@ -1,6 +1,7 @@
 package primenumberhashing;
 
 import java.util.Scanner;
+import java.util.LinkedList;
 
 public class UserInterface {
 
@@ -24,6 +25,19 @@ public class UserInterface {
     }
 
     public static void displayFileNotFoundError() {
-        System.out.println("File Not Found.");
+        System.out.println("FILE NOT FOUND.");
+    }
+
+    public void printLinkedListArray(LinkedList<Integer>[] keysInBuckets) {
+
+        for (int i = 0; i < keysInBuckets.length; i++) {
+            String bucketContents = "";
+            bucketContents += String.format("Bucket %d", i);
+            for (Integer j : keysInBuckets[i]) {
+                bucketContents += String.format("%d ", j);
+            }
+            System.out.println(bucketContents);
+        }
+
     }
 }

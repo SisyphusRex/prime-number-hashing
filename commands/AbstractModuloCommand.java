@@ -6,8 +6,8 @@ import primenumberhashing.CSVReader;
 import java.util.List;
 
 abstract class AbstractModuloCommand {
-    protected String goodKeysFilePath = "keys/GoodKeys.csv";
-    protected String badKeysFilePath = "keys/BadKeys.csv";
+    protected String goodKeysFilePath = "primenumberhashing/keys/GoodKeys.csv";
+    protected String badKeysFilePath = "primenumberhashing/keys/BadKeys.csv";
     protected CSVReader csvReader = new CSVReader();
     protected UserInterface ui = new UserInterface();
     protected Utilities utils = new Utilities();
