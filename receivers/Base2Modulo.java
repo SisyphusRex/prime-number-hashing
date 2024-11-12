@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedList;
 
-import commands.Command;
+import primenumberhashing.commands.Command;
 
 public class Base2Modulo {
     private Integer modulo;

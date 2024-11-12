@@ -17,4 +17,13 @@ public class UserInterface {
         Integer input = scanner.nextInt();
         return input;
     }
+
+    public int getN() {
+        System.out.println("Type integer n:");
+        return getInput();
+    }
+
+    public static void displayFileNotFoundError() {
+        System.out.println("File Not Found.");
+    }
 }
