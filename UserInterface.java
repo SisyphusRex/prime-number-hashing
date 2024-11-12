@@ -32,7 +32,7 @@ public class UserInterface {
 
         for (int i = 0; i < keysInBuckets.length; i++) {
             String bucketContents = "";
-            bucketContents += String.format("Bucket %d", i);
+            bucketContents += String.format("Bucket #%d: ", i);
             for (Integer j : keysInBuckets[i]) {
                 bucketContents += String.format("%d ", j);
             }

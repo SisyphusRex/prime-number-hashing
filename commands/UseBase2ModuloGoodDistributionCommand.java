@@ -9,6 +9,7 @@ public class UseBase2ModuloGoodDistributionCommand extends AbstractModuloCommand
     public void execute() {
 
         int moduloN = ui.getN();
+
         Base2Modulo myBase2 = new Base2Modulo(moduloN);
         List<List<String>> data = csvReader.getArrayFromCSV(goodKeysFilePath);
         Integer[] keys = utils.convertStringArrayListToIntegerArray(data.get(0));
