@@ -1,30 +1,20 @@
 package primenumberhashing.receivers;
 
+//System Imports
 import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedList;
+//First Party Imports
+import primenumberhashing.receivers.AbstractModulo;
 
-import primenumberhashing.commands.Command;
-
-public class Base2Modulo {
-    private Integer modulo;
+public class Base2Modulo extends AbstractModulo {
 
     public Base2Modulo(int n) {
-        this.modulo = (int) Math.pow(2, n);
+        super(n);
     }
 
-    public LinkedList<Integer>[] rangeReduce(Integer[] keys) {
-
-        LinkedList<Integer>[] reducedKeys = new LinkedList[this.modulo];
-        for (int i = 0; i < this.modulo; i++) {
-            reducedKeys[i] = new LinkedList<Integer>();
-        }
-        for (int i = 0; i < keys.length; i++) {
-            Integer value = keys[i];
-            Integer bucket = Integer.valueOf(value % this.modulo);
-
-            reducedKeys[bucket].add(value);
-        }
-        return reducedKeys;
+    @Override
+    protected int makeModulo(int n) {
+        return (int) Math.pow(2, n);
     }
 }

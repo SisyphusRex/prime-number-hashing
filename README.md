@@ -20,7 +20,11 @@ I've found conflicting responses on StackOverflow and other resources.  I cannot
 NOTE: I am implementing a Command Pattern Design menu and program flow for modularity.
 
 compile:
-    javac primenumberhashing/*.java
+    javac -d primenumberhashing/classfiles primenumberhashing/*.java
+
+(if errors)
+    javac -Xlint:unchecked  -d primenumberhashing/classfiles primenumberhashing/*.java
+
 
 run:
     java primenumberhashing.Bootstrap

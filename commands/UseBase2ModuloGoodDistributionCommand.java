@@ -12,8 +12,8 @@ public class UseBase2ModuloGoodDistributionCommand extends AbstractModuloCommand
 
         Base2Modulo myBase2 = new Base2Modulo(moduloN);
         List<List<String>> data = csvReader.getArrayFromCSV(goodKeysFilePath);
-        Integer[] keys = utils.convertStringArrayListToIntegerArray(data.get(0));
-        LinkedList<Integer>[] keysInBuckets = myBase2.rangeReduce(keys);
-        ui.printLinkedListArray(keysInBuckets);
+        Integer[] values = utils.convertStringArrayListToIntegerArray(data.get(0));
+        LinkedList<Integer>[] hashTable = myBase2.createHashTable(values);
+        ui.printLinkedListArray(hashTable);
     }
 }
