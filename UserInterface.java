@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.LinkedList;
 
 //First Party Imports
+import primenumberhashing.receivers.AbstractHashTable;
 
 public class UserInterface {
 
@@ -46,6 +47,10 @@ public class UserInterface {
             System.out.println(bucketContents);
         }
 
+    }
+
+    public void printHashTable(AbstractHashTable table) {
+        System.out.println(table);
     }
 
 }

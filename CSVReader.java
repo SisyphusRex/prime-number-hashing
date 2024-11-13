@@ -11,15 +11,6 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 public class CSVReader {
-    public class LineRecord {
-        public String key;
-        public String value;
-
-        public LineRecord(String key, String value) {
-            this.key = key;
-            this.value = value;
-        }
-    }
 
     public List<List<String>> getArrayFromCSV(String filePath) {
         List<List<String>> data = new ArrayList<>();

@@ -1,10 +1,13 @@
 package primenumberhashing.receivers;
 
 //System Imports
-import java.utils.LinkedList;
+import java.util.LinkedList;
 
-abstract class AbstractHashTable {
-    protected LinkedList<Integer>[] values;
+//First Party Imports
+import primenumberhashing.receivers.KeyValueLinkedList;
+
+public abstract class AbstractHashTable {
+    protected KeyValueLinkedList<String, String>[] objects;
     protected Integer modulo;
 
     public AbstractHashTable(Integer n) {
@@ -15,38 +18,40 @@ abstract class AbstractHashTable {
     protected abstract Integer makeModulo(Integer n);
 
     private LinkedList<String>[] instantiateBlankValuesTable() {
-        this.values = new LinkedList[this.modulo];
+        this.objects = new KeyValueLinkedList[this.modulo];
         this.instantiateBlankBuckets();
     }
 
     private void instantiateBlankBuckets() {
-        for (int i = 0; i < this.values.length; i++) {
-            this.values[i] = new LinkedList<String>();
+        for (int i = 0; i < this.objects.length; i++) {
+            this.objects[i] = new KeyValueLinkedList<String, String>();
         }
     }
 
-    private Integer hashFunction(Integer key) {
-        return key % this.modulo;
+    private Integer hashFunction(String key) {
+        return Integer.parseInt(key) % this.modulo;
     }
 
-    public void put(Integer key, String value) {
+    public void put(String key, String value) {
         Integer bucket = this.hashFunction(key);
-        this.values[bucket] = value;
+        this.objects[bucket].put(key, value);
     }
 
-    public String get(Integer key) {
+    public String get(String key) {
         Integer bucket = this.hashFunction(key);
-        return this.values[bucket];
+        return this.objects[bucket].get(key);
     }
 
     public String toString() {
         String hashtableContents = "";
-        for (int i; i < this.values.length; i++) {
+        for (int i; i < this.objects.length; i++) {
             String bucketContents = "";
             bucketContents += String.format("Bucket #%d: ", i);
-            for (String value : this.values[i]) {
+            String[] contentsList = this.objects[i].getAllValues();
+            for (String value : contentsList) {
                 bucketContents += String.format("%s ", value);
             }
+
             hashtableContents += String.format("%s%n");
         }
         return hashtableContents;

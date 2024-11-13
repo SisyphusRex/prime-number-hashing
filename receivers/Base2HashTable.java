@@ -8,6 +8,6 @@ public class Base2HashTable extends AbstractHashTable {
     }
 
     protected Integer makeModulo(Integer n) {
-        return Math.pow(2, n);
+        return (int) Math.pow(2, n);
     }
 }

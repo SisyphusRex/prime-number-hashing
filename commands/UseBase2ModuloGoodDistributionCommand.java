@@ -1,9 +1,12 @@
 package primenumberhashing.commands;
 
-import primenumberhashing.receivers.Base2HashTable;
+//System Imports
 import java.util.List;
 import java.util.LinkedList;
 import java.util.HashMap;
+import java.util.Map;
+//First Party Imports
+import primenumberhashing.receivers.Base2HashTable;
 
 public class UseBase2ModuloGoodDistributionCommand extends AbstractModuloCommand implements Command {
     @Override
@@ -12,12 +15,11 @@ public class UseBase2ModuloGoodDistributionCommand extends AbstractModuloCommand
         int moduloN = ui.getN();
 
         Base2HashTable myBase2 = new Base2HashTable(moduloN);
-        Hashmap<String, String> data = csvReader.getArrayFromCSV(goodKeysFilePath);
-        for (key, value : data) {
-
+        HashMap<String, String> data = csvReader.getHashMapFromCSV(goodKeysFilePath);
+        for (Map.Entry<String, String> entry : data.entrySet()) {
+            myBase2.put(entry.getKey(), entry.getValue());
         }
-        Integer[] keys = utils.convertStringArrayListToIntegerArray(data.get(0));
-        LinkedList<Integer>[] hashTable = myBase2.createHashTable(keys);
-        ui.printLinkedListArray(hashTable);
+
+        ui.printHashTable(myBase2);
     }
 }
