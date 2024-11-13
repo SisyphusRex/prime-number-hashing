@@ -1,7 +1,10 @@
 package primenumberhashing;
 
+//System Imports
 import java.util.Scanner;
 import java.util.LinkedList;
+
+//First Party Imports
 
 public class UserInterface {
 
@@ -28,6 +31,10 @@ public class UserInterface {
         System.out.println("FILE NOT FOUND.");
     }
 
+    public static void displayIndexError() {
+        System.out.println("INDEX OUT OF RANGE.");
+    }
+
     public void printLinkedListArray(LinkedList<Integer>[] keysInBuckets) {
 
         for (int i = 0; i < keysInBuckets.length; i++) {
@@ -40,4 +47,5 @@ public class UserInterface {
         }
 
     }
+
 }

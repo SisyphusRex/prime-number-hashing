@@ -14,7 +14,7 @@ abstract class AbstractModulo {
 
     protected abstract Integer makeModulo(Integer n);
 
-    public LinkedList<Integer>[] createHashTable(Integer[] values) {
+    public LinkedList<Integer>[] createHashTable(Integer[] keys) {
 
         // instantiate the hashtable (an array of linked lists)
         LinkedList<Integer>[] hashTable = new LinkedList[this.modulo];
@@ -25,16 +25,16 @@ abstract class AbstractModulo {
         }
 
         // map each value to bucket and add value to that bucket
-        for (int i = 0; i < values.length; i++) {
-            Integer value = values[i];
-            Integer bucket = hashingFunction(value);
+        for (int i = 0; i < keys.length; i++) {
+            Integer key = keys[i];
+            Integer bucket = hashingFunction(key);
 
             hashTable[bucket].add(value);
         }
         return hashTable;
     }
 
-    private Integer hashingFunction(Integer value) {
-        return Integer.valueOf(value % this.modulo);
+    private Integer hashingFunction(Integer key) {
+        return Integer.valueOf(key % this.modulo);
     }
 }
