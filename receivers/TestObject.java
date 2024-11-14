@@ -14,6 +14,6 @@ public class TestObject {
     }
 
     public String toString() {
-        return this.value;
+        return String.format("(%s %s)", this.key, this.value);
     }
 }
