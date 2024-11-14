@@ -27,4 +27,5 @@ compile:
 
 
 run:
-    java primenumberhashing.Bootstrap
+    java -cp primenumberhashing/classfiles primenumberhashing.Bootstrap
+

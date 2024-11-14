@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 //First Party Imports
 import primenumberhashing.receivers.Base2HashTable;
+import primenumberhashing.receivers.TestObject;
 
 public class UseBase2ModuloGoodDistributionCommand extends AbstractModuloCommand implements Command {
     @Override
@@ -17,7 +18,8 @@ public class UseBase2ModuloGoodDistributionCommand extends AbstractModuloCommand
         Base2HashTable myBase2 = new Base2HashTable(moduloN);
         HashMap<String, String> data = csvReader.getHashMapFromCSV(goodKeysFilePath);
         for (Map.Entry<String, String> entry : data.entrySet()) {
-            myBase2.put(entry.getKey(), entry.getValue());
+            TestObject newObject = new TestObject(entry.getKey(), entry.getValue());
+            myBase2.put(newObject);
         }
 
         ui.printHashTable(myBase2);

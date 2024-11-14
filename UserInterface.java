@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 //First Party Imports
 import primenumberhashing.receivers.AbstractHashTable;
+import primenumberhashing.receivers.Base2HashTable;
 
 public class UserInterface {
 

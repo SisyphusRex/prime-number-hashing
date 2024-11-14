@@ -35,10 +35,11 @@ public class CSVReader {
         return values;
     }
 
-    public Hashmap<String, String> getHashMapFromCSV(String filepath) {
+    public HashMap<String, String> getHashMapFromCSV(String filePath) {
         HashMap<String, String> data = new HashMap<>();
         try (Scanner scanner = new Scanner(new File(filePath))) {
             while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
                 String[] splitLine = line.split(",");
                 data.put(splitLine[0], splitLine[1]);
             }
