@@ -12,6 +12,10 @@ import primenumberhashing.receivers.AbstractHashTable;
 
 public class UseBase2ModuloGoodDistributionCommand extends AbstractModuloCommand {
 
+    public UseBase2ModuloGoodDistributionCommand(Menu parentMenu) {
+        super(parentMenu);
+    }
+
     @Override
     protected void assignHashTableType() {
         this.myHashTable = new Base2HashTable(this.moduloN);

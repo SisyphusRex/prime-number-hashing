@@ -20,6 +20,21 @@ abstract class AbstractModuloCommand implements Command {
     protected CSVReader csvReader = new CSVReader();
     protected UserInterface ui = new UserInterface();
     protected Utilities utils = new Utilities();
+    protected Menu parentMenu;
+
+    public AbstractModuloCommand(Menu parentMenu) {
+        this.parentMenu = parentMenu;
+    }
+
+    @Override
+    public void execute() {
+        this.moduloN = this.ui.getN();
+        this.assignHashTableType();
+        this.assignMyFilePath();
+        this.moveFromCSVToHashTable();
+        this.ui.printHashTable(this.myHashTable);
+        this.parentMenu.execute();
+    }
 
     abstract protected void assignHashTableType();
 
@@ -37,12 +52,4 @@ abstract class AbstractModuloCommand implements Command {
         }
     }
 
-    @Override
-    public void execute() {
-        this.moduloN = this.ui.getN();
-        this.assignHashTableType();
-        this.assignMyFilePath();
-        this.moveFromCSVToHashTable();
-        this.ui.printHashTable(this.myHashTable);
-    }
 }

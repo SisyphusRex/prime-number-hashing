@@ -3,11 +3,17 @@ package primenumberhashing.commands;
 //System Imports
 
 //First Party Imports
+import primenumberhashing.receivers.NoBaseHashTable;
 
 public class UsePrimeModuloGoodDistributionCommand extends AbstractModuloCommand {
+
+    public UsePrimeModuloGoodDistributionCommand(Menu parentMenu) {
+        super(parentMenu);
+    }
+
     @Override
     protected void assignHashTableType() {
-        this.myHashTable = new PrimeHashTable(this.moduloN);
+        this.myHashTable = new NoBaseHashTable(this.moduloN);
     }
 
     @Override

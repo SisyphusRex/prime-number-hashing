@@ -2,13 +2,13 @@ package primenumberhashing.receivers;
 
 import primenumberhashing.receivers.AbstractHashTable;
 
-public class Base2HashTable extends AbstractHashTable {
-    public Base2HashTable(Integer n) {
+public class Base10HashTable extends AbstractHashTable {
+    public Base10HashTable(Integer n) {
         super(n);
     }
 
     @Override
     protected Integer makeModulo(Integer n) {
-        return (int) Math.pow(2, n);
+        return (int) Math.pow(10, n);
     }
 }

@@ -10,10 +10,10 @@ public class Menu implements Command {
     private String[] menuOptions;
     private Menu parentMenu;
     private UserInterface ui = new UserInterface();
+    private String menuName;
 
-    // private Scanner scanner = new Scanner(System.in);
-
-    public Menu(Menu parentMenu) {
+    public Menu(String menuName, Menu parentMenu) {
+        this.menuName = menuName;
         this.parentMenu = parentMenu;
         if (parentMenu != null) {
             commands.put("Back", null);
@@ -23,7 +23,7 @@ public class Menu implements Command {
     @Override
     public void execute() {
         mapHashKeysToArray();
-        ui.displayMenu(this.menuOptions);
+        ui.displayMenu(this);
         int choice = ui.getInput();
         String name = mapInputToName(choice);
         executeCommand(name);
@@ -41,12 +41,6 @@ public class Menu implements Command {
         return optionName;
     }
 
-    /*
-     * private int getInput() {
-     * Integer input = scanner.nextInt();
-     * return input;
-     * }
-     */
     public void addCommand(String name, Command command) {
         commands.put(name, command);
     }
@@ -63,24 +57,12 @@ public class Menu implements Command {
         }
     }
 
-    /*
-     * private void displayMenu() {
-     * System.out.println("Menu:");
-     * for (int i = 0; i < menuOptions.length; i++) {
-     * System.out.println(i + ": " + menuOptions[i]);
-     * }
-     * }
-     */
-
-    /*
-     * private void displayMenuHash() {
-     * System.out.println("Menu:");
-     * int counter = 0;
-     * for (String name : commands.keySet()) {
-     * String optionWithNumber = String.format("%d: %s", counter, name);
-     * System.out.println(optionWithNumber);
-     * counter++;
-     * }
-     * }
-     */
+    public String toString() {
+        String menuString = "";
+        menuString = String.format("%s%n", this.menuName);
+        for (int i = 0; i < this.menuOptions.length; i++) {
+            menuString += String.format("%d: %s%n", i, this.menuOptions[i]);
+        }
+        return menuString;
+    }
 }

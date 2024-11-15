@@ -7,16 +7,15 @@ import java.util.LinkedList;
 //First Party Imports
 import primenumberhashing.receivers.AbstractHashTable;
 import primenumberhashing.receivers.Base2HashTable;
+import primenumberhashing.commands.Menu;
 
 public class UserInterface {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public void displayMenu(String[] menuOptions) {
-        System.out.println("Menu:");
-        for (int i = 0; i < menuOptions.length; i++) {
-            System.out.println(i + ": " + menuOptions[i]);
-        }
+    public void displayMenu(Menu myMenu) {
+        System.out.println(myMenu);
+
     }
 
     public int getInput() {
