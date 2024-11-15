@@ -1,14 +1,15 @@
-package primenumberhashing;
+package primenumberhashing.src;
 
+//System Imports
 import java.util.Scanner;
-
-import primenumberhashing.UserInterface;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+
+//First Party Imports
+import primenumberhashing.src.UserInterface;
 
 public class CSVReader {
 

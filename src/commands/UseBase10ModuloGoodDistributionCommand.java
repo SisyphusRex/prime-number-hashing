@@ -1,9 +1,9 @@
-package primenumberhashing.commands;
+package primenumberhashing.src.commands;
 
 //System Imports
 
 //First Party Imports
-import primenumberhashing.receivers.Base10HashTable;
+import primenumberhashing.src.receivers.Base10HashTable;
 
 public class UseBase10ModuloGoodDistributionCommand extends AbstractModuloCommand {
     public UseBase10ModuloGoodDistributionCommand(Menu parentMenu) {

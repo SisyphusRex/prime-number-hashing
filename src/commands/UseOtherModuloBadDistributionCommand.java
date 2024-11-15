@@ -1,9 +1,9 @@
-package primenumberhashing.commands;
+package primenumberhashing.src.commands;
 
 //System Imports
 
 //First Party Imports
-import primenumberhashing.receivers.NoBaseHashTable;
+import primenumberhashing.src.receivers.NoBaseHashTable;
 
 public class UseOtherModuloBadDistributionCommand extends AbstractModuloCommand {
 

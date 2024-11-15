@@ -1,9 +1,12 @@
-package primenumberhashing.commands;
+package primenumberhashing.src.commands;
 
+//System Imports
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import primenumberhashing.UserInterface;
+
+//First Party Imports
+import primenumberhashing.src.UserInterface;
 
 public class Menu implements Command {
     private Map<String, Command> commands = new HashMap<>();

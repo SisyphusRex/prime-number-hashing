@@ -1,21 +1,27 @@
-package primenumberhashing;
+package primenumberhashing.src;
 
 //System Imports
 import java.util.Scanner;
 import java.util.LinkedList;
 
 //First Party Imports
-import primenumberhashing.receivers.AbstractHashTable;
-import primenumberhashing.receivers.Base2HashTable;
-import primenumberhashing.commands.Menu;
+import primenumberhashing.src.receivers.AbstractHashTable;
+import primenumberhashing.src.receivers.Base2HashTable;
+import primenumberhashing.src.commands.Menu;
 
 public class UserInterface {
 
     private Scanner scanner = new Scanner(System.in);
 
     public void displayMenu(Menu myMenu) {
-        System.out.println(myMenu);
+        System.out.print(myMenu);
+        this.displaySelectionCursor();
 
+    }
+
+    public void displaySelectionCursor() {
+        System.out.println("Type Selection");
+        System.out.print("> ");
     }
 
     public int getInput() {

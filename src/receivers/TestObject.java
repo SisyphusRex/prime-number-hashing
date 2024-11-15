@@ -1,4 +1,4 @@
-package primenumberhashing.receivers;
+package primenumberhashing.src.receivers;
 
 //System Imports
 

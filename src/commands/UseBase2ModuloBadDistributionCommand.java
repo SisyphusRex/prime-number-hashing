@@ -1,13 +1,13 @@
-package primenumberhashing.commands;
+package primenumberhashing.src.commands;
 
 //System Imports
 import java.util.HashMap;
 import java.util.Map;
 //First Party Imports
-import primenumberhashing.receivers.AbstractHashTable;
-import primenumberhashing.commands.Command;
-import primenumberhashing.receivers.Base2HashTable;
-import primenumberhashing.receivers.TestObject;
+import primenumberhashing.src.receivers.AbstractHashTable;
+import primenumberhashing.src.commands.Command;
+import primenumberhashing.src.receivers.Base2HashTable;
+import primenumberhashing.src.receivers.TestObject;
 
 public class UseBase2ModuloBadDistributionCommand extends AbstractModuloCommand {
 

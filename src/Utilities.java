@@ -1,4 +1,4 @@
-package primenumberhashing;
+package primenumberhashing.src;
 
 import java.util.List;
 

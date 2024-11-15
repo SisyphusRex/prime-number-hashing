@@ -1,4 +1,4 @@
-package primenumberhashing.receivers;
+package primenumberhashing.src.receivers;
 
 //System Imports
 import java.util.LinkedList;
@@ -6,7 +6,7 @@ import java.util.ListIterator;
 
 //First Party Imports
 
-import primenumberhashing.receivers.TestObject;
+import primenumberhashing.src.receivers.TestObject;
 
 public abstract class AbstractHashTable {
     protected LinkedList<TestObject>[] testObjectsTable;

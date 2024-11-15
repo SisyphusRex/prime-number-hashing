@@ -20,12 +20,12 @@ I've found conflicting responses on StackOverflow and other resources.  I cannot
 NOTE: I am implementing a Command Pattern Design menu and program flow for modularity.
 
 compile:
-    javac -d primenumberhashing/classfiles primenumberhashing/*.java
+    javac -d primenumberhashing/bin primenumberhashing/src/*.java
 
 (if errors)
     javac -Xlint:unchecked  -d primenumberhashing/classfiles primenumberhashing/*.java
 
 
 run:
-    java -cp primenumberhashing/classfiles primenumberhashing.Bootstrap
+    java -cp primenumberhashing/bin primenumberhashing.src.Bootstrap
 

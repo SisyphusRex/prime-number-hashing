@@ -1,10 +1,10 @@
-package primenumberhashing.commands;
+package primenumberhashing.src.commands;
 
-import primenumberhashing.UserInterface;
-import primenumberhashing.Utilities;
-import primenumberhashing.CSVReader;
-import primenumberhashing.receivers.AbstractHashTable;
-import primenumberhashing.receivers.TestObject;
+import primenumberhashing.src.UserInterface;
+import primenumberhashing.src.Utilities;
+import primenumberhashing.src.CSVReader;
+import primenumberhashing.src.receivers.AbstractHashTable;
+import primenumberhashing.src.receivers.TestObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +15,8 @@ abstract class AbstractModuloCommand implements Command {
     protected AbstractHashTable myHashTable;
     protected HashMap<String, String> data;
     protected int moduloN;
-    protected String goodKeysFilePath = "primenumberhashing/keys/GoodKeys.csv";
-    protected String badKeysFilePath = "primenumberhashing/keys/BadKeys.csv";
+    protected String goodKeysFilePath = "primenumberhashing/resources/GoodKeys.csv";
+    protected String badKeysFilePath = "primenumberhashing/resources/BadKeys.csv";
     protected CSVReader csvReader = new CSVReader();
     protected UserInterface ui = new UserInterface();
     protected Utilities utils = new Utilities();

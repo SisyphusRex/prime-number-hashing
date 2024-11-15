@@ -1,6 +1,6 @@
-package primenumberhashing;
+package primenumberhashing.src;
 
-import primenumberhashing.commands.*;
+import primenumberhashing.src.commands.*;
 
 public class Program {
     Menu mainMenu;

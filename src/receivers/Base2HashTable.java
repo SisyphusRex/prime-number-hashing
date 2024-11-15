@@ -1,6 +1,6 @@
-package primenumberhashing.receivers;
+package primenumberhashing.src.receivers;
 
-import primenumberhashing.receivers.AbstractHashTable;
+import primenumberhashing.src.receivers.AbstractHashTable;
 
 public class Base2HashTable extends AbstractHashTable {
     public Base2HashTable(Integer n) {

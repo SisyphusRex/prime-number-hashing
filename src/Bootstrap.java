@@ -1,4 +1,4 @@
-package primenumberhashing;
+package primenumberhashing.src;
 
 public class Bootstrap {
 
