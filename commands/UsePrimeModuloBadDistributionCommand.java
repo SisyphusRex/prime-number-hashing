@@ -1,8 +1,13 @@
 package primenumberhashing.commands;
 
-public class UsePrimeModuloBadDistributionCommand implements Command {
+public class UsePrimeModuloBadDistributionCommand extends AbstractModuloCommand {
     @Override
-    public void execute() {
+    protected void assignHashTableType() {
+        this.myHashTable = new PrimeHashTable(this.moduloN);
+    }
 
+    @Override
+    protected void assignMyFilePath() {
+        this.myFilePath = this.badKeysFilePath;
     }
 }

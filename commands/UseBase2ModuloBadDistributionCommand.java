@@ -1,8 +1,24 @@
 package primenumberhashing.commands;
 
-public class UseBase2ModuloBadDistributionCommand implements Command {
-    @Override
-    public void execute() {
+//System Imports
+import java.util.HashMap;
+import java.util.Map;
+//First Party Imports
+import primenumberhashing.receivers.AbstractHashTable;
+import primenumberhashing.commands.Command;
+import primenumberhashing.receivers.Base2HashTable;
+import primenumberhashing.receivers.TestObject;
 
+public class UseBase2ModuloBadDistributionCommand extends AbstractModuloCommand {
+
+    @Override
+    protected void assignHashTableType() {
+        this.myHashTable = new Base2HashTable(this.moduloN);
     }
+
+    @Override
+    protected void assignMyFilePath() {
+        this.myFilePath = this.badKeysFilePath;
+    }
+
 }
