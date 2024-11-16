@@ -7,6 +7,7 @@ package primenumberhashing.src.receivers;
 public class TestObject {
     public String key;
     public String value;
+    private int maxLength = 4;
 
     public TestObject(String key, String value) {
         this.key = key;
@@ -14,6 +15,12 @@ public class TestObject {
     }
 
     public String toString() {
-        return String.format("(%s)", this.value);
+        String name = this.value;
+        if (name.length() >= maxLength) {
+            return String.format("(%s)", this.value.substring(0, 3));
+        } else {
+            return String.format("(%s)", this.value);
+        }
+
     }
 }

@@ -9,39 +9,56 @@ import java.util.ListIterator;
 import primenumberhashing.src.receivers.TestObject;
 
 public abstract class AbstractHashTable {
-    protected LinkedList<TestObject>[] testObjectsTable;
+    protected LinkedList<TestObject>[] bucketArray;
     protected Integer modulo;
+    protected Integer hashConstant;
 
     public AbstractHashTable(Integer n) {
         this.modulo = makeModulo(n);
-        this.instantiateLinkedListArray();
+        this.instantiateBucketArray();
     }
 
     protected abstract Integer makeModulo(Integer n);
 
-    private void instantiateLinkedListArray() {
-        this.testObjectsTable = new LinkedList[this.modulo];
-        this.instantiateLinkedLists();
+    private void instantiateBucketArray() {
+        this.bucketArray = new LinkedList[this.modulo];
+        this.instantiateBuckets();
     }
 
-    private void instantiateLinkedLists() {
-        for (int i = 0; i < this.testObjectsTable.length; i++) {
-            this.testObjectsTable[i] = new LinkedList<TestObject>();
+    private void instantiateBuckets() {
+        for (int i = 0; i < this.bucketArray.length; i++) {
+            this.bucketArray[i] = new LinkedList<TestObject>();
         }
     }
 
+    private Integer getBucketIndex(String key) {
+        Integer hash = this.hashFunction(key);
+        Integer index = this.rangeReduce(hash);
+        return index;
+    }
+
+    private Integer rangeReduce(Integer hash) {
+        Integer index = hash % this.modulo;
+        return index;
+    }
+
     private Integer hashFunction(String key) {
-        return Integer.parseInt(key) % this.modulo;
+        Integer integereddKey = Integer.valueOf(key);
+        Integer hash = (integereddKey * 11);
+        key = String.valueOf(hash);
+        key += "07";
+        hash = Integer.valueOf(key);
+        return hash;
     }
 
     public void put(TestObject inputObject) {
-        Integer bucket = this.hashFunction(inputObject.key);
-        this.testObjectsTable[bucket].add(inputObject);
+        Integer bucketIndex = this.getBucketIndex(inputObject.key);
+        this.bucketArray[bucketIndex].add(inputObject);
     }
 
     public TestObject get(String key) {
-        Integer bucketIndex = this.hashFunction(key);
-        LinkedList<TestObject> bucket = this.testObjectsTable[bucketIndex];
+        Integer bucketIndex = this.getBucketIndex(key);
+        LinkedList<TestObject> bucket = this.bucketArray[bucketIndex];
         for (int i = 0; i < bucket.size(); i++) {
             TestObject pulledObject = bucket.get(i);
             if (pulledObject.key == key) {
@@ -53,10 +70,10 @@ public abstract class AbstractHashTable {
 
     public String toString() {
         String hashtableContents = "";
-        for (int i = 0; i < this.testObjectsTable.length; i++) {
+        for (int i = 0; i < this.bucketArray.length; i++) {
             String bucketContents = "";
             bucketContents += String.format("Bucket #%d: ", i);
-            LinkedList<TestObject> bucket = this.testObjectsTable[i];
+            LinkedList<TestObject> bucket = this.bucketArray[i];
             ListIterator myIterator = bucket.listIterator();
             while (myIterator.hasNext()) {
                 bucketContents += String.format("%s ", myIterator.next());
