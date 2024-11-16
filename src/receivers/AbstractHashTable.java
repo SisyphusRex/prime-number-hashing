@@ -14,17 +14,17 @@ public abstract class AbstractHashTable {
 
     public AbstractHashTable(Integer n) {
         this.modulo = makeModulo(n);
-        this.instantiateBlankValuesTable();
+        this.instantiateLinkedListArray();
     }
 
     protected abstract Integer makeModulo(Integer n);
 
-    private void instantiateBlankValuesTable() {
+    private void instantiateLinkedListArray() {
         this.testObjectsTable = new LinkedList[this.modulo];
-        this.instantiateBlankBuckets();
+        this.instantiateLinkedLists();
     }
 
-    private void instantiateBlankBuckets() {
+    private void instantiateLinkedLists() {
         for (int i = 0; i < this.testObjectsTable.length; i++) {
             this.testObjectsTable[i] = new LinkedList<TestObject>();
         }
