@@ -1,28 +1,29 @@
 package primenumberhashing.src;
 
-import primenumberhashing.src.commands.*;
+//System Imports
+import java.util.HashMap;
+
+//First Party Imports
+import primenumberhashing.src.commands.ChangeModulo;
+import primenumberhashing.src.commands.ChangeHashConstant;
+import primenumberhashing.src.commands.ChangeHashPattern;
+import primenumberhashing.src.commands.LoadHashTableAndPrint;
+import primenumberhashing.src.commands.Menu;
+import primenumberhashing.src.CSVReader;
+import primenumberhashing.src.receivers.HashTable;
 
 public class Program {
+    CSVReader myCSVReader = new CSVReader();
+    String goodKeysFilePath = "primenumberhashing/resources/GoodKeys.csv";
     Menu mainMenu;
-    Menu populateTablesMenu;
-    Menu compareDataMenu;
-    Menu badKeyDistributionMenu;
-    Menu goodKeyDistributionMenu;
 
     public Program() {
-        mainMenu = new Menu("Main Menu", null);
-        populateTablesMenu = new Menu("Populate HashTables Menu", mainMenu);
-        compareDataMenu = new Menu("Compare Statistics Menu", mainMenu);
 
-        badKeyDistributionMenu = new Menu("Bad Key Distribution Menu", populateTablesMenu);
-        goodKeyDistributionMenu = new Menu("Good Key Distribution Menu", populateTablesMenu);
+        mainMenu = new Menu("Main Menu", null);
+
     }
 
     public void run() {
-        establishGoodKeyDistributionMenu();
-        establishBadKeyDistributionMenu();
-        establishPopulateTablesMenu();
-        establishCompareDataMenu();
         establishMainMenu();
         mainMenu.execute();
     }

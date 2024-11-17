@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import primenumberhashing.src.receivers.AbstractHashTable;
 import primenumberhashing.src.receivers.Base2HashTable;
 import primenumberhashing.src.commands.Menu;
+import primenumberhashing.src.receivers.Receiver;
 
 public class UserInterface {
 
@@ -24,14 +25,21 @@ public class UserInterface {
         System.out.print("> ");
     }
 
-    public int getInput() {
-        Integer input = scanner.nextInt();
+    public String getInput() {
+        String input = scanner.next();
         return input;
     }
 
-    public int getN() {
-        System.out.println("Type integer n:");
-        return getInput();
+    public String getHashPattern() {
+        System.out.println("Type the Pattern to concatenate to end of Hash:");
+        String input = this.getInput();
+        return input;
+    }
+
+    public Integer getInteger() {
+        System.out.println("Type integer:");
+        String input = this.getInput();
+        return Integer.valueOf(input);
     }
 
     public static void displayFileNotFoundError() {
@@ -57,6 +65,10 @@ public class UserInterface {
 
     public void printHashTable(AbstractHashTable table) {
         System.out.println(table);
+    }
+
+    public void printReceiver(Receiver receiver) {
+        System.out.println(receiver);
     }
 
 }
