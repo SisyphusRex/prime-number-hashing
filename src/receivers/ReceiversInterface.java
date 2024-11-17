@@ -1,12 +1,18 @@
 package primenumberhashing.src.receivers;
 
+//System Imports
+import java.util.HashMap;
+//First Party Imports
+
 public interface ReceiversInterface {
-    void changeModulo();
+    public void changeModulo(Integer newModulo);
 
-    void changeHashConstant();
+    public void changeHashConstant(Integer newHashConstant);
 
-    void changeHashPattern();
+    public void changeHashPattern(String newHashPattern);
 
-    void loadHashTable();
+    public void loadHashTable(HashMap<String, String> data);
+
+    public void removeHashPattern();
 
 }

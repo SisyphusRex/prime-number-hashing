@@ -26,8 +26,7 @@ public class Menu implements Command {
     @Override
     public void execute() {
         mapHashKeysToArray();
-        ui.displayMenu(this);
-        int choice = ui.getInput();
+        int choice = ui.displayMenuAndGetChoice(this.menuName, this.menuOptions);
         String name = mapInputToName(choice);
         executeCommand(name);
 

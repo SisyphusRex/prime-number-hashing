@@ -4,6 +4,6 @@ package primenumberhashing.src.receivers;
 
 //First Party Imports
 
-public class Receiver implements ReceiversInterface {
+public abstract class Receiver implements ReceiversInterface {
 
 }

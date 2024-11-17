@@ -6,6 +6,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.HashMap;
 
+import primenumberhashing.src.receivers.Receiver;
 //First Party Imports
 import primenumberhashing.src.receivers.ReceiversInterface;
 import primenumberhashing.src.receivers.TestObject;
@@ -19,36 +20,41 @@ public class HashTable extends Receiver {
     protected String hashPattern = "";
     protected HashMap<String, String> keyValueData;
 
-    public void loadHashTable(HashMap data) {
+    @Override
+    public void loadHashTable(HashMap<String, String> data) {
+        for (int i = 0; i < bucketArray.length; i++) {
+            bucketArray[i].clear();
+        }
         for (Map.Entry<String, String> entry : data.entrySet()) {
             TestObject newObject = new TestObject(entry.getKey(), entry.getValue());
             this.put(newObject);
         }
     }
 
+    @Override
     public void changeModulo(Integer newModulo) {
         this.modulo = newModulo;
         this.instantiateBucketArray();
     }
 
+    @Override
     public void changeHashConstant(Integer newHashConstant) {
         this.hashConstant = newHashConstant;
     }
 
+    @Override
     public void changeHashPattern(String newHashPattern) {
         this.hashPattern = newHashPattern;
+    }
+
+    @Override
+    public void removeHashPattern() {
+        this.hashPattern = "";
     }
 
     public void put(TestObject inputObject) {
         Integer bucketIndex = this.getBucketIndex(inputObject.key);
         this.bucketArray[bucketIndex].add(inputObject);
-    }
-
-    public void moveAllObjectsFromHashMapToHashTable(HashMap data) {
-        for (Map.Entry<String, String> entry : data.entrySet()) {
-            TestObject newObject = new TestObject(entry.getKey(), entry.getValue());
-            this.put(newObject);
-        }
     }
 
     public TestObject get(String key) {
@@ -117,7 +123,8 @@ public class HashTable extends Receiver {
     }
 
     public String toString() {
-        String hashtableContents = "";
+        String hashtableContents = String.format("Modulo: %s%nHash Constant: %s%nHash Pattern: %s%n%n", this.modulo,
+                this.hashConstant, this.hashPattern);
         for (int i = 0; i < this.bucketArray.length; i++) {
             String bucketContents = "";
             bucketContents += String.format("Bucket #%d: ", i);

@@ -18,7 +18,12 @@ public class LoadHashTableAndPrint extends AbstractCommand {
 
     @Override
     protected void executeReceiver() {
-        this.receiver.LoadHashTable(this.myCSVReader.getHashMapFromCSV(keyValueFilePath));
-        ui.printReceiver(this.receiver);
+        try {
+            this.receiver.loadHashTable(this.myCSVReader.getHashMapFromCSV(this.keyValueFilePath));
+            ui.printReceiver(this.receiver);
+        } catch (NullPointerException e) {
+            ui.displayModuloOrConstantNotCreatedError();
+        }
+
     }
 }

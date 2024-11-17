@@ -13,7 +13,7 @@ public class ChangeHashConstant extends AbstractCommand {
 
     @Override
     protected void executeReceiver() {
-        Integer newHashConstant = this.ui.getInteger();
-        this.receiver.ChangeHashConstant(newHashConstant);
+        Integer newHashConstant = this.ui.getHashConstant();
+        this.receiver.changeHashConstant(newHashConstant);
     }
 }

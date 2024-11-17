@@ -13,7 +13,7 @@ public class ChangeModulo extends AbstractCommand {
 
     @Override
     protected void executeReceiver() {
-        Integer newModulo = this.ui.getInteger();
+        Integer newModulo = this.ui.getModulo();
         this.receiver.changeModulo(newModulo);
     }
 }
