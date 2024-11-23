@@ -36,6 +36,37 @@ My custom hashtable will handle collisions with separate chaining.  It will be a
 
 NOTE: I am implementing a Command Pattern Design menu and program flow for modularity.
 
+Results:
+1. Mod m forms a set {0, 1, 2...m-1}
+2. A member without a modular multiplicative inverse breaks down the operations of the set
+    * Any multiple of a number without a modular multiplicative inverse can only be reduced by mod m to a multiple of that number
+    * all factors of the modulo m do not have modular multiplicative inverses
+3. If the set of Keys that is being hashed contains a higher concentration of these multiples than the modulus set then there will be uneven distribution of the keys over the hash table
+    * these multiples can be identified by having common factors with the modulo
+4.  Sets formed by mod m where m is a prime number form fields
+    * All members of fields have a modular multiplicative inverse
+    * prime numbers have no factors besides 1 and themselves
+5.  Thus, Prime Number modulos reduce uneven distribution.
+
+What does this program do?
+* This program creates hashtables from a predetermined set of well distributed keys using hash function parameters that can be changed by the user.  It prints the hash tables and contents to the terminal for viewing.
+* The user can change:
+    1. The modulo
+    2. The hash constant
+        * The hash constant biases the well distributed key set
+        * This biased is accomplished by multiplying every member of the key set by the constant
+    3. Hash pattern
+        * this concatenates a string of characters (each an integer) to the end of a hashed key before range reduction
+        * these patterns allow the user to demonstrate why modulo m where m is a power of 2 or 10 can produce poor distribution
+
+Test it yourself:
+1. Go to the hashtable parameters menu
+2. Modify the modulo to be a number
+3. Modify the hash constant to be a number
+4. Load the keys and print
+5. If the modulo and the hash constant share a factor, then the distribution of keys in the buckets will be poor
+6. If the modulo and the hash constant share no factors, then the distribution of keys will be good
+
 compile:
     javac -d primenumberhashing/bin primenumberhashing/src/*.java
 
